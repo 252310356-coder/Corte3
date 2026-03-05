@@ -1,0 +1,14 @@
+
+* {
+    color: red;
+    font-size: 1.5em;
+}
+
+
+#fondo{
+    background-image: url("imagenes/fondo.jpeg");
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.8;
+}
