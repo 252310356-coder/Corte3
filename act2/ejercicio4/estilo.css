@@ -1,5 +1,5 @@
 #titulo{
-    color: rgb(52, 133, 54);
+    color: rgb(73, 173, 140);
 }
 
 p > strong{
@@ -48,7 +48,7 @@ table, th, td {
 
 }
 
-table th [scope="row"] {
+table th [scope="col"] {
     color: rgb(43, 255, 0);
     font-weight: bold;
 }
