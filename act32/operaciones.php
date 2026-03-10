@@ -13,5 +13,12 @@ class operaciones {
     public function sumarConParametros ($num1, $num2) {
         return $num1 + $num2;
     }
+
+    public function multiplicarSinParametros () {
+        return $this->num1 * $this->num2;
+    }
+
+    public function multiplicarConParametros ($num1, $num2) {
+        return $num1 * $num2;
+    }
 }
-?>
