@@ -2,8 +2,8 @@
 require_once 'fraccion.php';
 
 // Crear dos fracciones
-$fraccion1 = new Fraccion(1, 2); // Representa 1/2
-$fraccion2 = new Fraccion(3, 4); // Representa 3/4
+$fraccion1 = new Fraccion(1, 2);
+$fraccion2 = new Fraccion(3, 2); 
 // Sumar las fracciones
 echo $fraccion1->sumar($fraccion2) . "<br>"; 
 //Resta
