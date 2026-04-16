@@ -58,6 +58,8 @@ positivo.");
  return $suma * $h;
     }
 
+
+    
     public function aumentoEnergia(): void {
     $n_values = [10, 100, 1000];
     foreach ($n_values as $n) {

@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <p>Cálculo basado en la integral definida de la carga del servidor.</p>
  </div>
 
- <div class="info">
+  <div class="info">
    <h3><?php echo "Aumento de energía con diferentes precisiones (n):"; ?></h3>
    <table>
     <tr>
@@ -87,8 +87,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  </div>
  <script>
   const audio = document.getElementById("miaudio");
-
-  
   window.addEventListener("DOMContentLoaded", () => {
     audio.play().catch(() => {
       
@@ -97,13 +95,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         audio.play();
       }, { once: true });
     });
-  });
-
-  
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      audio.pause();
-    }
   });
 
   
