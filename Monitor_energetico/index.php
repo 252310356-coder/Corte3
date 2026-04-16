@@ -61,7 +61,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php echo "Tipo de carga seleccionada: " . ($_POST['tipo_carga'] == 1 ? "Normal (P(t) = 2t + 5)" : ($_POST['tipo_carga'] == 2 ? "Constante (P(t) = 5)" : ($_POST['tipo_carga'] == 3 ? "Fuerte (P(t) = t^2)" : "Potencia (P(t) = t^2 + 2t)")) ); ?>
     <p>Cálculo basado en la integral definida de la carga del servidor.</p>
  </div>
- <?php endif; ?>
 
  <div class="info">
    <h3><?php echo "Aumento de energía con diferentes precisiones (n):"; ?></h3>
@@ -75,6 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php echo $integrador->aumentoEnergia((int) $_POST['precision']); ?>
    </table>
  </div>
+ <?php endif; ?>
 
  <?php if ($error): ?>
  <div class="error"> Error: <?php echo $error; ?></div>

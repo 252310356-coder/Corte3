@@ -5,7 +5,7 @@ class IntegradorNumerico {
  private float $fin; // Límite superior (segundos)
  private int $pasos; // Precisión (n subintervalos)
  private int $tipoCarga; // Tipo de carga (1: Normal, 2: Constante, 3: Fuerte)
- public function __construct(float $a, float $b, int $n = 1000 , int $tipoCarga = 1) {
+ public function __construct(float $a, float $b, int $n , int $tipoCarga) {
  if ($a >= $b) {
 
  throw new \InvalidArgumentException("El tiempo inicial debe ser menor al
@@ -62,13 +62,13 @@ positivo.");
     $n_values = [10, 100, 1000];
     foreach ($n_values as $n) {
         $integrador = new IntegradorNumerico(
-            (float)$_POST['t_inicio'],
-            (float)$_POST['t_fin'],
+            $this->inicio,
+            $this->fin,
             $n,
-            (int) $_POST['tipo_carga']
+            $this->tipoCarga
         );
         $energia = $integrador->calcularEnergiaTotal();
-        echo "<tr> <td> $_POST[t_inicio] </td> <td> $_POST[t_fin] </td> <td> $n </td> <td> " . number_format($energia, 4) . " </td> </tr>";
+        echo "<tr> <td> $this->inicio </td> <td> $this->fin </td> <td> $n </td> <td> " . number_format($energia, 4) . " </td> </tr>";
     }
     }
 }
