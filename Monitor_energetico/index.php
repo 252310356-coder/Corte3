@@ -30,9 +30,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  <title>Cloud Energy Monitor</title>
  <link rel="stylesheet" href="css/style.css">
 </head>
+<audio id="miaudio" src="musica/idnyl.mp3" loop></audio>
+
+
 <body>
- <div class="container">
- <h1>Monitor de Energía (DataCenter)</h1>
+ <div class="container cam">
+ <h1>Monitor de Energía <br> (DataCenter)</h1>
  <form method="POST">
  <label>Tiempo Inicial (s):</label>
  <input type="number" name="t_inicio" step="0.1" required>
@@ -57,13 +60,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  <div class="result">
  <h3>Consumo Total: 
     <?php echo number_format ($resultado, 4); ?> Joules</h3>
-    <h3>Consumo en Kilovatio-hora: <?php echo number_format ($resultado * 2.7778 * 1e-7, 4); ?> kWh  </h3>
+    <h3>Consumo en Kilovatio-hora: <?php echo number_format ($resultado * 2.7778 * 1e-7, 7); ?> kWh  </h3>
     <?php echo "Tipo de carga seleccionada: " . ($_POST['tipo_carga'] == 1 ? "Normal (P(t) = 2t + 5)" : ($_POST['tipo_carga'] == 2 ? "Constante (P(t) = 5)" : ($_POST['tipo_carga'] == 3 ? "Fuerte (P(t) = t^2)" : "Potencia (P(t) = t^2 + 2t)")) ); ?>
     <p>Cálculo basado en la integral definida de la carga del servidor.</p>
  </div>
- <?php endif; ?>
 
- <div class="info">
+  <div class="info">
    <h3><?php echo "Aumento de energía con diferentes precisiones (n):"; ?></h3>
    <table>
     <tr>
@@ -75,10 +77,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <?php echo $integrador->aumentoEnergia((int) $_POST['precision']); ?>
    </table>
  </div>
+ <?php endif; ?>
+
+ 
 
  <?php if ($error): ?>
  <div class="error"> Error: <?php echo $error; ?></div>
  <?php endif; ?>
  </div>
+ <script>
+  const audio = document.getElementById("miaudio");
+  window.addEventListener("DOMContentLoaded", () => {
+    audio.play().catch(() => {
+      
+      console.log("Autoplay bloqueado. Esperando interacción del usuario...");
+      document.addEventListener("click", () => {
+        audio.play();
+      }, { once: true });
+    });
+  });
+
+  
+  window.addEventListener("beforeunload", () => {
+    audio.pause();
+  });
+</script>
 </body>
 </html>
