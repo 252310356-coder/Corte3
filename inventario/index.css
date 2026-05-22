@@ -1,0 +1,86 @@
+/* Definición de colores y fuente */
+        :root {
+            --primary-color: #4a90e2;
+            --secondary-color: #50e3c2;
+            --bg-color: #f4f7f6;
+            --text-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        /* Contenedor del formulario */
+        form {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* Estilo de los inputs */
+        input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        /* Estilo de los botones */
+        button {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.1s, background-color 0.3s;
+        }
+
+        button[value="agregar"] {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        button[value="agregar"]:hover {
+            background-color: #357abd;
+        }
+
+        button[value="procesar"] {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            color: #666;
+        }
+
+        button[value="procesar"]:hover {
+            background-color: #e2e6ea;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
