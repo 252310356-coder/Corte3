@@ -14,7 +14,6 @@ while True:
         print("2. Mostrar Usuarios")
         print("3. Nivel de acceso")
         print("4. Salir")
-
         
         opcion = input("Selecciona una opción: ")
         
@@ -40,5 +39,4 @@ while True:
 
         elif opcion == "4":
             print("Saliendo del sistema. ¡Hasta luego!")
-
             break

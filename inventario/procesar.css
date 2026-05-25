@@ -1,0 +1,80 @@
+:root {
+            --primary: #4a90e2;
+            --danger: #e74c3c;
+            --bg: #f4f7f6;
+            --text: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 800px;
+        }
+
+        h1, h2 { color: var(--primary); text-align: center; }
+
+        /* Estilo de la Tabla */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+        }
+
+        table th, table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        table th { background-color: #f8f9fa; color: var(--primary); }
+
+        table tr:hover { background-color: #f1f1f1; }
+
+        /* Tarjetas de estadísticas */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: #eef5ff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #d0e3ff;
+        }
+
+        .stat-card span { display: block; font-size: 0.9em; color: #666; }
+        .stat-card strong { font-size: 1.2em; color: var(--primary); }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-back { background: #666; color: white; }
+        .btn-clear { background: var(--danger); color: white; margin-top: 20px; width: 100%; }
+        
+        .actions { display: flex; justify-content: space-between; align-items: center; }
