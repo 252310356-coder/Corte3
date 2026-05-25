@@ -1,6 +1,6 @@
 <?php
 // Nombre del arcvhivo que tiene los asistentes
-
+//Practica 6.2 continuacion de la practiuca 6.1
 $archivo = "asistentes.txt";
 
 try {
