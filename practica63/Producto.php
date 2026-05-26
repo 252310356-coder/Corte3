@@ -15,6 +15,19 @@ class Producto {
         $this->stock = $stock;
     }
 
+    //getters
+    public function getNombre() {
+        return $this->nombre;
+    }
+    public function getCategoria() {
+        return $this->categoria;
+    }
+    public function getPrecio() {
+        return $this->precio;
+    }
+    public function getStock() {
+        return $this->stock;
+    }
     //Metodo getinfo()
     public function getInfo() {
         return "Nombre: " . $this->nombre . ", Categoría: " . $this->categoria . ", Precio: " . $this->precio . ", Stock: " . $this->stock;
@@ -40,20 +53,28 @@ try {
         throw new Exception("No se pudo abrir el archivo.");
     }
     //Verificar que si tengan valores los campos
-    if (empty($this->nombre) || empty($this->categoria) || !is_numeric($this->precio) || !is_numeric($this->stock)) {
-        throw new Exception("Datos inválidos: Todos los campos deben tener valores válidos.");
-    } else {
-    // Escribir el nuevo nombre en el archivo
-    fwrite($archivo, $this->getInfo() . PHP_EOL); // PHP_EOL inserta un salto de línea compatible con el sistema operativo
-    }
-    // Cerrar el archivo después de escribir
-    fclose($archivo);
-    
-    echo "Nombre registrado correctamente en el archivo.";
+  if (empty($this->nombre) || empty($this->categoria) || !is_numeric($this->precio) || !is_numeric($this->stock)) {
+            throw new Exception("Datos inválidos.");
+        }
+
+        $lineas = file_exists($ruta) ? file($ruta, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
+        foreach ($lineas as $linea) {
+            if (strpos($linea, "Nombre: " . $this->nombre . ",") !== false) {
+                throw new Exception("El producto ya existe.");
+            }else{
+
+            }
+        }
+
+        $fp = fopen($ruta, "a");
+        fwrite($fp, $this->getInfo() . PHP_EOL);
+        fclose($fp);
     }catch (Exception $e) {
     echo "Ocurrió un error: " . $e->getMessage();
+    }
 }
-}
+
+    
 
 public static function leerProductosDesdeArchivo($ruta) {
     $productos = [];
@@ -94,7 +115,16 @@ public static function leerProductosDesdeArchivo($ruta) {
         return $productos;
 }
 
+// Añade este método a tu clase Producto
+public static function sobrescribirArchivo($ruta, $listaProductos) {
+        $fp = fopen($ruta, "w");
+        foreach ($listaProductos as $prod) {
+            fwrite($fp, $prod->getInfo() . PHP_EOL);
+        }
+        fclose($fp);
+    }
+ }
 
-}
+?>
 
 

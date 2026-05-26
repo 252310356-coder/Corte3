@@ -1,1 +1,4 @@
-Nombre: Coca, Categoría: Refresco, Precio: 21, Stock: 213
+Nombre: Computadora, Categoría: Electronicos, Precio: 12, Stock: 213
+Nombre: Queso, Categoría: Comida, Precio: 123, Stock: 123
+Nombre: Sopa, Categoría: Comida, Precio: 24, Stock: 210
+Nombre: Celular, Categoría: Electronicos, Precio: 2000, Stock: 53

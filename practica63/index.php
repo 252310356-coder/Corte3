@@ -47,6 +47,22 @@
         $producto->guardarEnArchivo("producto.txt");
         }
         
+        $archivo = "producto.txt";
+$productos = Producto::leerProductosDesdeArchivo($archivo);
+
+echo "<h1>Lista de Productos</h1>";
+
+// TABLA DE PRODUCTOS
+echo "<table border='1'>
+        <tr><th>ID</th><th>Datos</th><th>Acción</th></tr>";
+foreach ($productos as $index => $prod) {
+    echo "<tr>
+            <td>$index</td>
+            <td>" . $prod->getInfo() . "</td>
+            <td><a href='leer_productos.php?editar=$index'>Modificar</a></td>
+          </tr>";
+}
+echo "</table>";
     ?>
 </body>
 </html>
