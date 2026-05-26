@@ -1,0 +1,1 @@
+Nombre: Coca, Categoría: Refresco, Precio: 21, Stock: 213
