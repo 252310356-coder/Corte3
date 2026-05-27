@@ -74,8 +74,6 @@ try {
     }
 }
 
-    
-
 public static function leerProductosDesdeArchivo($ruta) {
     $productos = [];
     try {
